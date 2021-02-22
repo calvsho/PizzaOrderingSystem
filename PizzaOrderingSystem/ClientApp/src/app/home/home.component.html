@@ -1,0 +1,56 @@
+<h1 id="tableLabel">Order Pizza System </h1>
+
+
+<table id="pizzatable" class='table table-striped' aria-labelledby="tableLabel">
+  <thead>
+    <tr>
+      <th>Toppings</th>
+      <th *ngFor="let column of headers">
+        {{column}}
+      </th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td></td>
+
+      <td>
+        <input id="inputSqty" name="inputSqty" [(ngModel)]="inputSqty" />
+      </td>
+      <td><input id="inputMqty" name="inputMqty" [(ngModel)]="inputMqty" /></td>
+      <td><input id="inputLqty" name="inputLqty" [(ngModel)]="inputLqty" /></td>
+      <td><input id="inputXqty" name="inputXqty" [(ngModel)]="inputXqty" /></td>
+    </tr>
+    <tr>
+      <td colspan="5">Veg Toppings</td>
+    </tr>
+    <tr *ngFor="let row of vegtop">
+      <td>{{row.Name}}</td>
+      <td><input type="checkbox" name="{{row.Name}}S" value="{{row.Value}}" ng-model="row.SCheck" /></td>
+      <td><input type="checkbox" name="{{row.Name}}M" value="{{row.Value}}" ng-model="row.MCheck" /></td>
+      <td><input type="checkbox" name="{{row.Name}}L" value="{{row.Value}}" ng-model="row.LCheck" /></td>
+      <td><input type="checkbox" name="{{row.Name}}X" value="{{row.Value}}" ng-model="row.XCheck" /></td>
+    </tr>
+    <tr>
+      <td colspan="5">Non Veg Toppings</td>
+    </tr>
+    <tr *ngFor="let row of meattop">
+      <td>{{row.Name}}</td>
+      <td><input type="checkbox" name="{{row.Name}}S" value="{{row.Value}}" ng-model="row.SCheck" /></td>
+      <td><input type="checkbox" name="{{row.Name}}M" value="{{row.Value}}" ng-model="row.MCheck" /></td>
+      <td><input type="checkbox" name="{{row.Name}}L" value="{{row.Value}}" ng-model="row.LCheck" /></td>
+      <td><input type="checkbox" name="{{row.Name}}X" value="{{row.Value}}" ng-model="row.XCheck" /></td>
+    </tr>
+    <tr>
+      <td colspan="5">Offers</td>
+    </tr>
+    <tr>
+      <td><label id="lblOffers">Offers Applied: </label></td>
+    </tr>
+    <tr>
+      <td colspan="3">Total:</td>
+      <td><label id="lblTotal"></label></td>
+      <td><button (click)="getQuantity(inputSqty, inputMqty,inputLqty,inputXqty)">Calculate Total</button></td>
+    </tr>
+  </tbody>
+</table>
